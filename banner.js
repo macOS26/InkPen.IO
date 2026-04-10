@@ -96,7 +96,7 @@
         background-clip: text;
         text-decoration: none;
         font-weight: 700;
-        animation: sponsor-throb 3s ease-in-out infinite;
+        animation: sponsor-throb 9s ease-in-out infinite;
     }
     .sponsor-sep {
         color: #ddd;
