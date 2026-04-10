@@ -89,7 +89,7 @@
         50% { background-position: 100% 50%; }
     }
     .countdown-sponsor a {
-        background: linear-gradient(270deg, #00d4ff, #a855f7, #00d4ff, #a855f7, #00d4ff, #a855f7, #00d4ff, #a855f7);
+        background: linear-gradient(270deg, #00d4ff, #34d399, #00d4ff, #34d399, #00d4ff, #34d399, #00d4ff, #34d399);
         background-size: 1200% 100%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
