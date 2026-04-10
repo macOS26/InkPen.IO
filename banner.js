@@ -102,7 +102,7 @@
         color: #ddd;
     }
     .sponsor-dim {
-        color: #ccc;
+        color: #ddd;
         font-weight: 300;
     }
     .banner-nav {
