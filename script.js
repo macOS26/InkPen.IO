@@ -2,14 +2,8 @@ const GITHUB_API = 'https://api.github.com/repos/macos26/logos/releases';
 
 function extractVersion(filename) {
     if (!filename) return '';
-    // Try build number pattern (e.g., logos.inkpen.io-1.0b29.zip)
-    var buildMatch = filename.match(/([\d.]+b\d+)/);
-    if (buildMatch) return buildMatch[1];
-    // Try semantic version (e.g., 1.0.0)
-    var semverMatch = filename.match(/(\d+\.\d+\.\d+)/);
-    if (semverMatch) return semverMatch[1];
-    // Fallback: filename without extension
-    return filename.replace(/\.(zip|dmg|pkg)$/i, '');
+    var match = filename.match(/(\d+\.\d+\.\d+)/);
+    return match ? match[1] : '';
 }
 
 function formatFileSize(bytes) {
@@ -33,15 +27,15 @@ async function autoDiscoverReleases() {
         var releases = await response.json();
         if (!releases.length) return;
 
-        // Find the latest release with a zip asset
-        var latestZip = null;
+        // Find the latest release with a DMG asset
+        var latestDmg = null;
         for (var r = 0; r < releases.length; r++) {
             var release = releases[r];
             for (var a = 0; a < release.assets.length; a++) {
                 var asset = release.assets[a];
-                if (asset.name.endsWith('.zip')) {
-                    if (!latestZip) {
-                        latestZip = {
+                if (asset.name.endsWith('.dmg')) {
+                    if (!latestDmg) {
+                        latestDmg = {
                             url: asset.browser_download_url,
                             version: extractVersion(asset.name),
                             tag: release.tag_name
@@ -53,20 +47,20 @@ async function autoDiscoverReleases() {
         }
 
         // Update download button and links
-        if (latestZip) {
+        if (latestDmg) {
             var downloadBtn = document.getElementById('download-btn');
             if (downloadBtn) {
-                downloadBtn.href = latestZip.url;
-                downloadBtn.textContent = 'Download ' + latestZip.version;
+                downloadBtn.href = latestDmg.url;
+                downloadBtn.textContent = 'Download v' + latestDmg.version;
             }
             var descLink = document.getElementById('desc-download-link');
             if (descLink) {
-                descLink.href = latestZip.url;
-                descLink.textContent = latestZip.version + ' available for download';
+                descLink.href = latestDmg.url;
+                descLink.textContent = 'v' + latestDmg.version + ' available for download';
             }
             var whatsNewHeader = document.getElementById('whats-new-header');
             if (whatsNewHeader) {
-                whatsNewHeader.textContent = "WHAT'S NEW IN " + latestZip.version.toUpperCase();
+                whatsNewHeader.textContent = "WHAT'S NEW IN " + latestDmg.version;
             }
         }
 
@@ -79,7 +73,7 @@ async function autoDiscoverReleases() {
             var release = releases[r];
             for (var a = 0; a < release.assets.length; a++) {
                 var asset = release.assets[a];
-                if (!asset.name.endsWith('.zip')) continue;
+                if (!asset.name.endsWith('.dmg')) continue;
                 var version = extractVersion(asset.name);
                 var date = formatDate(new Date(release.published_at || release.created_at));
                 var size = formatFileSize(asset.size);
