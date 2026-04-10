@@ -1,4 +1,4 @@
-// Countdown Banner - Shared across pages
+// Banner - Shared across pages
 (function() {
     // Detect if in subdirectory
     const inHelp = window.location.pathname.includes('/help/');
@@ -6,29 +6,14 @@
     const docsLink = inHelp ? 'index.html' : 'help/index.html';
     const statsLink = inHelp ? '../ip-stats.html' : 'ip-stats.html';
 
+    const GITHUB_API = 'https://api.github.com/repos/macos26/logos/releases';
+
     // Insert banner HTML at start of body
     const bannerHTML = `
     <div class="countdown-banner">
         <div class="countdown-banner-content">
-            <div class="countdown-label" id="countdown-label"></div>
-            <div class="countdown-timer" id="countdown">
-                <span class="countdown-segment">
-                    <span class="countdown-number" id="days">00</span>
-                    <span class="countdown-unit">DAYS</span>
-                </span>
-                <span class="countdown-segment">
-                    <span class="countdown-number" id="hours">00</span>
-                    <span class="countdown-unit">HRS</span>
-                </span>
-                <span class="countdown-segment">
-                    <span class="countdown-number" id="minutes">00</span>
-                    <span class="countdown-unit">MIN</span>
-                </span>
-                <span class="countdown-segment">
-                    <span class="countdown-number" id="seconds">00</span>
-                    <span class="countdown-unit">SEC</span>
-                </span>
-            </div>
+            <div class="countdown-label" id="countdown-label">LOGOS INKPEN</div>
+            <div class="countdown-released" id="countdown-released">RELEASED</div>
             <div class="countdown-sponsor">Sponsor <a href="https://superbox64.com" target="_blank">SuperBox64.com</a> Retro Arcade Boxes</div>
         </div>
         <div class="banner-nav">
@@ -75,7 +60,7 @@
         font-family: 'Orbitron', monospace;
         padding-bottom: 3px;
     }
-    .countdown-timer {
+    .countdown-released {
         font-size: 2.468rem;
         font-weight: 900;
         letter-spacing: 0.1em;
@@ -85,35 +70,10 @@
         border-radius: 5px;
         border: none;
         line-height: 1;
-    }
-    .countdown-segment {
-        display: inline-block;
-        margin: 0 8px;
-        line-height: 1;
-    }
-    .countdown-number {
-        display: inline-block;
-        text-align: center;
-        line-height: 1;
         background: linear-gradient(135deg, #00d4ff, #7b2ff7);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-    }
-    .digit {
-        display: inline-block;
-        width: 32.5px;
-        text-align: center;
-    }
-    .countdown-unit {
-        font-size: 0.9rem;
-        display: block;
-        color: #999;
-        margin: 0;
-        letter-spacing: 0.05em;
-        line-height: 1;
-        font-family: 'Orbitron', monospace;
-        font-weight: 700;
     }
     .countdown-sponsor {
         font-size: 0.75rem;
@@ -177,20 +137,8 @@
         display: none;
     }
     @media (max-width: 768px) {
-        .countdown-timer {
+        .countdown-released {
             font-size: 1.495rem;
-        }
-        .countdown-number {
-            min-width: 35px;
-        }
-        .countdown-segment {
-            margin: 0 4px;
-        }
-        .digit {
-            width: 19.5px;
-        }
-        .countdown-unit {
-            font-size: 0.675rem;
         }
         .countdown-sponsor {
             font-size: 0.65rem;
@@ -216,47 +164,31 @@
     // Insert HTML at start of body
     document.body.insertAdjacentHTML('afterbegin', bannerHTML);
 
-    // Read release config from global RELEASE_CONFIG (loaded via release-status.js)
-    const config = window.RELEASE_CONFIG;
-    const build = config.build;
-    const targetDate = new Date(config.targetDate);
-    const isReleased = config.released;
+    // Fetch latest version from GitHub and update banner
+    async function updateBannerVersion() {
+        try {
+            var response = await fetch(GITHUB_API);
+            if (!response.ok) return;
+            var releases = await response.json();
+            if (!releases.length) return;
 
-    // Set banner label with build number
-    document.getElementById('countdown-label').innerHTML =
-        'INKPEN <span class="hide-mobile">BETA </span>RELEASE 1.0 <span class="hide-mobile">BUILD</span><span class="show-mobile">BETA</span> ' + build;
-
-    const wrapDigits = (num) => String(num).padStart(2, '0').split('').map(d => `<span class="digit">${d}</span>`).join('');
-
-    function updateCountdown() {
-        const now = new Date();
-        const difference = targetDate - now;
-
-        if (isReleased && difference <= 0) {
-            // Timer expired AND release confirmed for this build
-            document.getElementById('countdown').innerHTML = '<span style="background: linear-gradient(135deg, #00d4ff, #7b2ff7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">RELEASED!</span>';
-            return;
-        }
-
-        if (difference > 0) {
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            document.getElementById('days').innerHTML = wrapDigits(days);
-            document.getElementById('hours').innerHTML = wrapDigits(hours);
-            document.getElementById('minutes').innerHTML = wrapDigits(minutes);
-            document.getElementById('seconds').innerHTML = wrapDigits(seconds);
-        } else {
-            // Timer expired but not yet marked as released — show zeros
-            document.getElementById('days').innerHTML = wrapDigits(0);
-            document.getElementById('hours').innerHTML = wrapDigits(0);
-            document.getElementById('minutes').innerHTML = wrapDigits(0);
-            document.getElementById('seconds').innerHTML = wrapDigits(0);
+            for (var r = 0; r < releases.length; r++) {
+                var release = releases[r];
+                for (var a = 0; a < release.assets.length; a++) {
+                    var asset = release.assets[a];
+                    if (asset.name.endsWith('.dmg')) {
+                        var match = asset.name.match(/(\d+\.\d+\.\d+)/);
+                        if (match) {
+                            document.getElementById('countdown-label').textContent = 'LOGOS INKPEN ' + match[1];
+                        }
+                        return;
+                    }
+                }
+            }
+        } catch (e) {
+            // Keep default text on failure
         }
     }
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    updateBannerVersion();
 })();

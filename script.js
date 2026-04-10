@@ -62,6 +62,10 @@ async function autoDiscoverReleases() {
             if (whatsNewHeader) {
                 whatsNewHeader.textContent = "WHAT'S NEW IN " + latestDmg.version;
             }
+            var mainTitle = document.getElementById('main-title');
+            if (mainTitle) {
+                mainTitle.textContent = 'Logos InkPen ' + latestDmg.version;
+            }
         }
 
         // Build the release history table
