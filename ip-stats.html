@@ -41,7 +41,7 @@
         </div>
     <script src="footer.js"></script>
     <script>
-        const GITHUB_API = 'https://api.github.com/repos/SuperBox64/InkPen.IO/releases';
+        const GITHUB_API = 'https://api.github.com/repos/macos26/logos/releases';
 
         async function fetchStats() {
             try {
@@ -188,8 +188,16 @@
         function extractBuildNumber(filename) {
             if (!filename) return 'N/A';
             if (filename.includes('mvp-beta')) return 'mvp';
-            const match = filename.match(/b(\d+)/i);
-            return match ? `b${match[1]}` : filename.replace('.zip', '');
+            // Try build number pattern (e.g., 1.0b29)
+            var buildMatch = filename.match(/([\d.]+b\d+)/);
+            if (buildMatch) return buildMatch[1];
+            // Try semantic version (e.g., 1.0.0)
+            var semverMatch = filename.match(/(\d+\.\d+\.\d+)/);
+            if (semverMatch) return semverMatch[1];
+            // Try simple build number (e.g., b29)
+            var simpleMatch = filename.match(/b(\d+)/i);
+            if (simpleMatch) return `b${simpleMatch[1]}`;
+            return filename.replace(/\.(zip|dmg|pkg)$/i, '');
         }
 
         function formatFileSize(bytes) {
