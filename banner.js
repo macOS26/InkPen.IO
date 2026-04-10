@@ -20,7 +20,7 @@
             <a href="${homeLink}">Home</a>
             <a href="https://chat.xcf.ai" target="_blank">Chat</a>
             <a href="${docsLink}">Docs</a>
-            <a href="${statsLink}">Stat</a>
+            <a href="${statsLink}">Stats</a>
             <a href="https://macos26.app" target="_blank">Agent!</a>
         </div>
         <div class="founder-notice">
