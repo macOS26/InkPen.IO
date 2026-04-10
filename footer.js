@@ -15,7 +15,7 @@
                 <div><a href="https://chat.xcf.ai" target="_blank" style="color: inherit;">Chat</a></div>
                 <div><a href="${docsLink}">Docs</a></div>
                 <div><a href="${statsLink}" onclick="this.href='${statsLink}?v='+Date.now()" style="color: inherit;">Stat</a></div>
-                <div><a href="https://superbox64.com" target="_blank" style="color: inherit;">sBox</a></div>
+                <div><a href="https://macos26.app" target="_blank" style="color: inherit;">Agent!</a></div>
                 <div class="year-tooltip">2026
                     <div class="tooltip-popup">
                         Created by Todd Bruss<br>
