@@ -14,14 +14,14 @@
         <div class="countdown-banner-content">
             <div class="countdown-label" id="countdown-label">LOGOS INKPEN</div>
             <div class="countdown-released" id="countdown-released">RELEASED</div>
-            <div class="countdown-sponsor">Sponsor <a href="https://superbox64.com" target="_blank">SuperBox64.com</a> Retro Arcade Boxes</div>
+            <div class="countdown-sponsor">Sponsor <a href="https://xcf.ai" target="_blank">Agent!</a> <span class="sponsor-sep">for</span> <a href="https://xcf.ai" target="_blank">macOS 26.4+</a> <span class="sponsor-dim">Agentic AI for your Apple Mac Desktop</span></div>
         </div>
         <div class="banner-nav">
             <a href="${homeLink}">Home</a>
             <a href="https://chat.xcf.ai" target="_blank">Chat</a>
             <a href="${docsLink}">Docs</a>
             <a href="${statsLink}">Stat</a>
-            <a href="https://superbox64.com" target="_blank">SBOX</a>
+            <a href="https://xcf.ai" target="_blank">Agent</a>
         </div>
         <div class="founder-notice">
             <span class="ribbon-icon">&#x1F397;</span> Our founder, Todd Bruss, is currently battling Cancer. Through it all, he continues to pour his heart into InkPen. Your support and encouragement mean the world. <span class="ribbon-icon">&#x1F397;</span>
@@ -85,11 +85,25 @@
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
     .countdown-sponsor a {
-        color: #fff;
+        background: linear-gradient(135deg, #00d4ff, #7b2ff7);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         text-decoration: none;
+        font-weight: 700;
     }
     .countdown-sponsor a:hover {
-        text-decoration: underline;
+        background: linear-gradient(135deg, #7b2ff7, #00d4ff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .sponsor-sep {
+        color: #999;
+    }
+    .sponsor-dim {
+        color: #666;
+        font-weight: 300;
     }
     .banner-nav {
         display: flex;
