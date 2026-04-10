@@ -84,19 +84,10 @@
         margin-top: 1.5px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     }
-    @keyframes sponsor-throb {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-    }
     .countdown-sponsor a {
-        background: linear-gradient(270deg, #00d4ff, #34d399, #00d4ff, #34d399, #00d4ff, #34d399, #00d4ff, #34d399);
-        background-size: 1200% 100%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #fff;
         text-decoration: none;
         font-weight: 700;
-        animation: sponsor-throb 9s ease-in-out infinite;
     }
     .sponsor-sep {
         color: #ddd;
