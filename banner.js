@@ -99,10 +99,10 @@
         animation: sponsor-throb 3s ease-in-out infinite;
     }
     .sponsor-sep {
-        color: #bbb;
+        color: #ddd;
     }
     .sponsor-dim {
-        color: #999;
+        color: #ccc;
         font-weight: 300;
     }
     .banner-nav {
