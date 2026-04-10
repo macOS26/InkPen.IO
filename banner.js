@@ -14,14 +14,14 @@
         <div class="countdown-banner-content">
             <div class="countdown-label" id="countdown-label">LOGOS INKPEN</div>
             <div class="countdown-released" id="countdown-released">RELEASED</div>
-            <div class="countdown-sponsor">Sponsor <a href="https://xcf.ai" target="_blank">Agent!</a> <span class="sponsor-sep">for</span> <a href="https://xcf.ai" target="_blank">macOS 26.4+</a> <span class="sponsor-dim">Agentic AI for your Apple Mac Desktop</span></div>
+            <div class="countdown-sponsor">Sponsor <a href="https://macos26.app" target="_blank">Agent!</a> <span class="sponsor-sep">for</span> <a href="https://macos26.app" target="_blank">macOS 26.4+</a> <span class="sponsor-dim">Agentic AI for your Apple Mac Desktop</span></div>
         </div>
         <div class="banner-nav">
             <a href="${homeLink}">Home</a>
             <a href="https://chat.xcf.ai" target="_blank">Chat</a>
             <a href="${docsLink}">Docs</a>
             <a href="${statsLink}">Stat</a>
-            <a href="https://xcf.ai" target="_blank">Agent</a>
+            <a href="https://macos26.app" target="_blank">Agent</a>
         </div>
         <div class="founder-notice">
             <span class="ribbon-icon">&#x1F397;</span> Our founder, Todd Bruss, is currently battling Cancer. Through it all, he continues to pour his heart into InkPen. Your support and encouragement mean the world. <span class="ribbon-icon">&#x1F397;</span>
