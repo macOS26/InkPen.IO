@@ -34,7 +34,10 @@
       "Bash(file:*)",
       "Bash(cwebp:*)",
       "Bash(git restore:*)",
-      "WebFetch(domain:www.seanmcp.com)"
+      "WebFetch(domain:www.seanmcp.com)",
+      "Bash(git config:*)",
+      "Bash(gh api:*)",
+      "Bash(gh release:*)"
     ],
     "deny": [],
     "ask": []
