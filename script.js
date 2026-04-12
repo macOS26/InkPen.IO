@@ -68,6 +68,9 @@ async function autoDiscoverReleases() {
             }
         }
 
+        // Render What's New from latest release notes
+        renderReleaseNotes(releases[0].body);
+
         // Build the release history table
         var tbody = document.getElementById('release-history-body');
         if (!tbody) return;
@@ -96,6 +99,63 @@ async function autoDiscoverReleases() {
     } catch (e) {
         // Silently fail — the page still works with fallback links
     }
+}
+
+function renderReleaseNotes(body) {
+    var container = document.getElementById('whats-new-content');
+    if (!container || !body) return;
+
+    var lines = body.split(/\r?\n/);
+    var html = '';
+    var inList = false;
+    var bullet = '<span style="font-size: 1.7rem; vertical-align: -3.5px; line-height: 0; color: #999;">\u2022</span>';
+    var listStyle = 'list-style: none; padding-left: 0; line-height: 1.8; font-size: 0.85rem; color: #000; font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;';
+
+    function cleanText(t) {
+        t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+        t = t.replace(/\*([^*]+)\*/g, '<em>$1</em>');
+        t = t.replace(/`([^`]+)`/g, '<code>$1</code>');
+        t = t.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+        return t;
+    }
+
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim();
+
+        // Skip images, horizontal rules, empty lines, top title/bold summary
+        if (!line || line === '---' || line.match(/^<img /)) continue;
+        if (line.match(/^##\s+\*\*Logos InkPen/)) continue;
+        if (line.match(/^\*\*A massive update/)) continue;
+        if (line.match(/^\*\*Full Changelog\*\*/)) continue;
+        if (line.match(/^https?:\/\//)) continue;
+
+        // Section headers (### or ####)
+        var sectionMatch = line.match(/^#{2,4}\s+(.*)/);
+        if (sectionMatch) {
+            if (inList) { html += '</ul>'; inList = false; }
+            var title = sectionMatch[1].replace(/\*+/g, '').replace(/[#]+/g, '').trim();
+            title = title.replace(/[\u{1F000}-\u{1FFFF}]/gu, '').trim();
+            if (title) {
+                html += '<h4 style="font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #333; margin: 1.2rem 0 0.5rem 0;">' + title + '</h4>';
+            }
+            continue;
+        }
+
+        // List item
+        var itemMatch = line.match(/^-\s+(.*)/);
+        if (itemMatch) {
+            if (!inList) {
+                html += '<ul style="' + listStyle + '">';
+                inList = true;
+            }
+            html += '<li style="padding-top: 7.5px; padding-bottom: 0;">' + bullet + ' ' + cleanText(itemMatch[1]) + '</li>';
+            continue;
+        }
+    }
+
+    if (inList) html += '</ul>';
+
+    container.innerHTML = html || '<p style="font-size: 0.85rem; color: #999;">No release notes available.</p>';
 }
 
 autoDiscoverReleases();

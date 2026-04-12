@@ -57,6 +57,11 @@
             padding: 25px 0 0.5rem 0;
         }
 
+        .hero > .container {
+            max-width: 1800px;
+            padding: 0 20px;
+        }
+
         .hero-content {
             max-width: 100%;
         }
@@ -109,7 +114,7 @@
         .carousel-wrapper {
             position: relative;
             width: 100%;
-            height: 660px;
+            aspect-ratio: 3180 / 2870;
             border-radius: 20px;
             overflow: hidden;
         }
@@ -132,12 +137,11 @@
         }
 
         .carousel-slide img {
-            width: 98%;
-            height: 98%;
+            width: 100%;
+            height: 100%;
             display: block;
-            object-fit: cover;
+            object-fit: contain;
             margin: auto;
-            border-radius: 20px;
         }
 
         .carousel-controls {
@@ -529,47 +533,39 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="test-drive-inkpen">WELCOME TO</div>
-                <h1 class="main-title" id="main-title">Logos InkPen</h1>
-                <p class="subtitle">Professional Vector Art & Design for macOS</p>
+                <div class="test-drive-inkpen">INTRODUCING</div>
+                <h1 class="main-title" id="main-title">Logos InkPen 1.0.2</h1>
+                <p class="subtitle">Dedicated to FreeHand Lovers Everywhere</p>
 
                 <div class="carousel-container">
                     <div class="carousel-wrapper" id="carouselWrapper">
                         <div class="carousel-slide active">
-                            <img data-cache-bust="slideshow/1-inkpen.webp" alt="InkPen Application Interface" fetchpriority="high">
+                            <img data-cache-bust="slideshow/0a-freehand5.webp" alt="Macromedia FreeHand 5.0 tribute opened in Logos InkPen" fetchpriority="high">
                         </div>
                         <div class="carousel-slide">
-                            <img data-cache-bust="slideshow/2-hello.webp" alt="InkPen Hello Screenshot" loading="lazy">
+                            <img data-cache-bust="slideshow/0b-globe-fh4.webp" alt="GLOBE.FH4 mechanical valve imported in Logos InkPen" loading="lazy">
                         </div>
                         <div class="carousel-slide">
-                            <img data-cache-bust="slideshow/3-apple.webp" alt="InkPen Apple Logo" loading="lazy">
-                        </div>
-                        <div class="carousel-slide">
-                            <img data-cache-bust="slideshow/4-atari.webp" alt="InkPen Atari Logo" loading="lazy">
-                        </div>
-                        <div class="carousel-slide">
-                            <img data-cache-bust="slideshow/5-finder.webp" alt="InkPen Finder Interface" loading="lazy">
+                            <img data-cache-bust="slideshow/0c-inkpen-logo.webp" alt="InkPen logo SVG opened in Logos InkPen" loading="lazy">
                         </div>
                     </div>
                     <div class="carousel-dots">
                         <span class="carousel-dot active" onclick="goToSlide(0)"></span>
                         <span class="carousel-dot" onclick="goToSlide(1)"></span>
                         <span class="carousel-dot" onclick="goToSlide(2)"></span>
-                        <span class="carousel-dot" onclick="goToSlide(3)"></span>
-                        <span class="carousel-dot" onclick="goToSlide(4)"></span>
                     </div>
                 </div>
 
                 <p class="description">
-                    Vector Art &amp; Design for macOS 14, 15 &amp; 26. <a href="https://github.com/macos26/logos/releases" id="desc-download-link" style="color: inherit; text-decoration: underline;">Available for download</a>.
+                    A massive update with native FreeHand file import. FH3 through FH11 and FreeHand MX, opened directly without any intermediate formats. v1.0.2 <a href="https://github.com/macos26/logos/releases" id="desc-download-link" style="color: inherit; text-decoration: underline;">available for download</a>.
                 </p>
 
                 <p class="description">
-                    Perfect for Xcode UI, SpriteKit sprites, SVGs, web graphics, and Linux icons. Inspired by Macromedia FreeHand MX. Supports Apple Pencil via Luna Display or Sidecar.
+                    PDF and SVG parsing has been greatly improved. Perfect for Xcode UI, SpriteKit sprites, web graphics, and Linux icons. It can even open your PDF receipts and W-2 forms. Supports Apple Pencil via Luna Display or Sidecar.
                 </p>
 
                 <p class="description">
-                    Built on SwiftUI, Metal &amp; CoreGraphics; engineered to be the fastest vector app on the planet.
+                    Built from the ground up on SwiftUI, Metal &amp; CoreGraphics for macOS 14, 15 &amp; 26. Engineered for blazing-fast rendering with GPU-accelerated paths, real-time previews, and instant zoom at any scale. Logos InkPen is designed to be the fastest vector art &amp; design app on the planet.
                 </p>
 
                 <div class="cta-section">
@@ -604,44 +600,8 @@
         <div class="container">
             <div class="release-table" style="margin-bottom: 2rem; margin-top: 40px;">
                 <h3 id="whats-new-header">WHAT'S NEW</h3>
-                <div style="padding: 1rem; text-align: left;">
-                    <ul style="list-style: none; padding-left: 0; line-height: 1.8; font-size: 0.85rem; color: #000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;">
-                        <li style="padding-top: 7.5px; padding-bottom: 0;"><span style="font-size: 1.7rem; vertical-align: -3.5px; line-height: 0; color: #999;">•</span> New select behind feature
-                            <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.25rem;">
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Cmd + click with arrow tool</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Option + click with direct select tool</li>
-                            </ul>
-                        </li>
-                        <li style="padding-top: 7.5px; padding-bottom: 0;"><span style="font-size: 1.7rem; vertical-align: -3.5px; line-height: 0; color: #999;">•</span> Ability to nudge points using arrow keys
-                            <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.25rem;">
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> 1x grid size (arrow keys only)</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> 0.1x grid size (option + arrow keys)</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> 10x grid size (shift + arrow keys)</li>
-                            </ul>
-                        </li>
-                        <li style="padding-top: 7.5px; padding-bottom: 0;"><span style="font-size: 1.7rem; vertical-align: -3.5px; line-height: 0; color: #999;">•</span> New Align tool
-                            <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.25rem;">
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Aligns by anchor points for each object</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Align Horizontal + Vertical</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Align Horizontal</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Align Vertical</li>
-                            </ul>
-                        </li>
-                        <li style="padding-top: 7.5px; padding-bottom: 0;"><span style="font-size: 1.7rem; vertical-align: -3.5px; line-height: 0; color: #999;">•</span> Autodesk native export
-                            <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.25rem;">
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> SVG exports at 96dpi</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> SVG imports at 100%</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Native InkPen doc is automatically embedded</li>
-                            </ul>
-                        </li>
-                        <li style="padding-top: 7.5px; padding-bottom: 0;"><span style="font-size: 1.7rem; vertical-align: -3.5px; line-height: 0; color: #999;">•</span> Rename items in Layers panel
-                            <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.25rem;">
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Groups</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Paths</li>
-                                <li><span style="font-size: 1.2rem; vertical-align: -1px; line-height: 0; color: #999;">◦</span> Objects</li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div id="whats-new-content" style="padding: 1rem; text-align: left;">
+                    <p style="font-size: 0.85rem; color: #999; text-align: center;">Loading release notes...</p>
                 </div>
             </div>
 
