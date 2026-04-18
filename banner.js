@@ -142,7 +142,8 @@
         display: none;
     }
     @media (max-width: 768px) {
-        .countdown-banner {
+        .countdown-banner-content,
+        .founder-notice {
             display: none !important;
         }
         .countdown-released {
