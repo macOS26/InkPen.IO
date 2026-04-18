@@ -12,6 +12,7 @@
     const bannerHTML = `
     <div class="countdown-banner">
         <div class="countdown-banner-content">
+            <div class="countdown-sponsor">Sponsor <a href="https://macos26.app" target="_blank">Agent!</a> <span class="sponsor-sep">for</span> <a href="https://macos26.app" target="_blank">macOS 26.4+</a> <span class="sponsor-dim">Agentic AI for your Apple Mac Desktop</span></div>
         </div>
         <div class="banner-nav">
             <a href="${homeLink}">Home</a>
