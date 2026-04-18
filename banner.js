@@ -12,9 +12,6 @@
     const bannerHTML = `
     <div class="countdown-banner">
         <div class="countdown-banner-content">
-            <div class="countdown-label" id="countdown-label">LOGOS INKPEN</div>
-            <div class="countdown-released" id="countdown-released">RELEASED</div>
-            <div class="countdown-sponsor">Sponsor <a href="https://macos26.app" target="_blank">Agent!</a> <span class="sponsor-sep">for</span> <a href="https://macos26.app" target="_blank">macOS 26.4+</a> <span class="sponsor-dim">Agentic AI for your Apple Mac Desktop</span></div>
         </div>
         <div class="banner-nav">
             <a href="${homeLink}">Home</a>
@@ -190,7 +187,8 @@
                     if (asset.name.endsWith('.dmg')) {
                         var match = asset.name.match(/(\d+\.\d+\.\d+)/);
                         if (match) {
-                            document.getElementById('countdown-label').textContent = 'LOGOS INKPEN ' + match[1];
+                            var el = document.getElementById('countdown-label');
+                            if (el) el.textContent = 'LOGOS INKPEN ' + match[1];
                         }
                         return;
                     }
