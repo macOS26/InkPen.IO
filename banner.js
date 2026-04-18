@@ -141,6 +141,11 @@
     .show-mobile {
         display: none;
     }
+    @media (max-width: 900px) {
+        .banner-nav {
+            display: none !important;
+        }
+    }
     @media (max-width: 768px) {
         .countdown-banner-content,
         .founder-notice {
