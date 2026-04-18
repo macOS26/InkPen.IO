@@ -23,9 +23,6 @@
             <a href="${statsLink}">Stats</a>
             <a href="https://macos26.app" target="_blank">Agent!</a>
         </div>
-        <div class="founder-notice">
-            <span class="ribbon-icon">&#x1F397;</span> Our founder, Todd Bruss, is currently battling Cancer. Through it all, he continues to pour his heart into InkPen. Your support and encouragement mean the world. <span class="ribbon-icon">&#x1F397;</span>
-        </div>
     </div>`;
 
     // Insert banner CSS
