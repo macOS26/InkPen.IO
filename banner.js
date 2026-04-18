@@ -141,8 +141,8 @@
     .show-mobile {
         display: none;
     }
-    @media (max-width: 900px) {
-        .banner-nav {
+    @media (orientation: landscape) and (max-height: 500px) {
+        .countdown-banner {
             display: none !important;
         }
     }
