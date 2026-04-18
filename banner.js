@@ -142,6 +142,9 @@
         display: none;
     }
     @media (max-width: 768px) {
+        .countdown-banner {
+            display: none !important;
+        }
         .countdown-released {
             font-size: 1.495rem;
         }
