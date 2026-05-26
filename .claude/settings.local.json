@@ -37,7 +37,8 @@
       "WebFetch(domain:www.seanmcp.com)",
       "Bash(git config:*)",
       "Bash(gh api:*)",
-      "Bash(gh release:*)"
+      "Bash(gh release:*)",
+      "Bash(git *)"
     ],
     "deny": [],
     "ask": []
