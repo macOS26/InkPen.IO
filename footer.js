@@ -18,7 +18,7 @@
                 <div><a href="https://macos26.app" target="_blank" style="color: inherit;">Agent!</a></div>
                 <div class="year-tooltip">2026
                     <div class="tooltip-popup">
-                        Created by Todd Bruss<br>
+                        Created by Heisenburg<br>
                         Copyright 2026<br>
                         Logos InkPen LLC<br>
                         All Rights Reserved
