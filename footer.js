@@ -17,7 +17,7 @@
                 <div><a href="https://macos26.app" target="_blank" style="color: inherit;">Agent!</a></div>
                 <div class="year-tooltip">2026
                     <div class="tooltip-popup">
-                        Created by Heisenburg<br>
+                        Created by AgentiLoop.ai<br>
                         Copyright 2026<br>
                         Logos InkPen LLC<br>
                         All Rights Reserved
