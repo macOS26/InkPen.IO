@@ -14,7 +14,7 @@
                 <div><a href="${homeLink}" style="color: inherit;">Home</a></div>
                 <div><a href="${docsLink}">Docs</a></div>
                 <div><a href="${statsLink}" onclick="this.href='${statsLink}?v='+Date.now()" style="color: inherit;">Stats</a></div>
-                <div><a href="https://macos26.app" target="_blank" style="color: inherit;">Agent!</a></div>
+                <div><a href="https://agentiloop.ai" target="_blank" style="color: inherit;">Agent!</a></div>
                 <div class="year-tooltip">2026
                     <div class="tooltip-popup">
                         Created by AgentiLoop.ai<br>
